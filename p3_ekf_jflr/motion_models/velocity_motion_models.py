@@ -67,7 +67,7 @@ def velocity_motion_model_linearized():
         V = np.array([
             [delta_t * np.cos(theta), 0],
             [delta_t * np.sin(theta), 0],
-            [0,                       delta_t]
+            [0, delta_t]
         ])
 
         return V

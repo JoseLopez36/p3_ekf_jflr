@@ -16,10 +16,9 @@ def main(args=None):
     mu0 = np.zeros(7)
     Sigma0 = np.eye(7)
     # TO ADJUST
-    proc_noise_std = [0.1, 0.1, 0.05, 0.1, 0.1, 0.1, 0.1] # [x, y, theta, v, w, a_x, a_y]
-    obs_noise_std = [100.0, 100.0, 1000.0, 6.853891945200942e-06, 1.0966227112321507e-06, 0.0015387262937311438, 0.0015387262937311438] #[x, y, theta, theta_imu, w, a_x, a_y]
+    proc_noise_std = [1.0, 1.0, 0.5, 1.0, 1.0, 1.0, 1.0] # [x, y, theta, v, w, a_x, a_y]
+    obs_noise_std = [0.5, 0.5, 0.2, 6.853891945200942e-06, 1.0966227112321507e-06, 0.0015387262937311438, 0.0015387262937311438]  #[x, y, theta, theta_imu, w, a_x, a_y]
 
-    # === Replace the None below with proper motion and observation model functions ===
     ekf = ExtendedKalmanFilter(mu0, Sigma0,
                                acceleration_motion_model_linearized_1,                                      # motion_model_7d
                                odometry_imu_observation_model_with_acceleration_motion_model_linearized_1,  # observation_model_7d

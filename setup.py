@@ -15,7 +15,7 @@ setup(
     zip_safe=True,
     maintainer='Jose Francisco López Ruiz',
     maintainer_email='josloprui6@alum.us.es',
-    description='TODO: Package description',
+    description='Practica 3: Extended Kalman Filter',
     license='Apache-2.0',
     tests_require=['pytest'],
     entry_points={

@@ -3,7 +3,7 @@
 <package format="3">
   <name>p3_ekf_jflr</name>
   <version>1.0.0</version>
-  <description>TODO: Package description</description>
+  <description>Practica 3: Extended Kalman Filter</description>
   <maintainer email="josloprui6@alum.us.es">Jose Francisco López Ruiz</maintainer>
   <license>Apache-2.0</license>
 

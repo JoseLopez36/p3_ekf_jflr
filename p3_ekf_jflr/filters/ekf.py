@@ -36,18 +36,13 @@ class ExtendedKalmanFilter:
 
         # === Implement the EKF prediction step ===
         # 1. Predict the new mean using motion model g
-		mu_ = self.g(self.mu, u, dt)
+		self.mu = self.g(self.mu, u, dt)
 
         # 2. Compute the Jacobian of the motion model G_t
 		G = self.G(self.mu, u, dt)
 
         # 3. Predict the covariance
-		Sigma_ = G @ self.Sigma @ G.T + self.R
-
-		# 4. Update the state estimate
-		self.mu = mu_
-		self.Sigma = Sigma_
-
+		self.Sigma = G @ self.Sigma @ G.T + self.R
         # ===============================================
 
 		end_time = time.time()
@@ -83,8 +78,8 @@ class ExtendedKalmanFilter:
 		self.mu = self.mu + K @ y_reshaped
 
 		# 6. Update the covariance
-		self.Sigma = (np.eye(len(self.mu)) - K @ H) @ self.Sigma
-
+		I = np.eye(len(self.mu))
+		self.Sigma = (I - K @ H) @ self.Sigma
 		# ================================================
 
 		end_time = time.time()
