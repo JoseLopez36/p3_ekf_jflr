@@ -14,9 +14,16 @@ def main(args=None):
     # Initialize the Kalman Filter
     mu0 = np.zeros(3)
     Sigma0 = np.eye(3)
-    # TO ADJUST
-    proc_noise_std = [1.0, 1.0, 0.5]  # X, Y, yaw process noise
-    obs_noise_std = [0.5, 0.5, 0.2]   # X, Y, yaw measurement noise
+    # Noise configurations
+    # Balanced
+    proc_noise_std = [1.02, 1.02, 0.51]
+    obs_noise_std = [1.02, 1.02, 0.51]
+    # High observation noise
+    # proc_noise_std = [1.02, 1.02, 0.51]
+    # obs_noise_std = [2.04, 2.04, 1.02]   
+    # High process noise
+    # proc_noise_std = [2.04, 2.04, 1.02]
+    # obs_noise_std = [1.02, 1.02, 0.51]
 
     ekf = ExtendedKalmanFilter(mu0, Sigma0, 
                                velocity_motion_model_linearized,
